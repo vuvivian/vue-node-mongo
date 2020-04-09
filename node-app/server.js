@@ -1,3 +1,12 @@
+/*
+ * @Author: vuvivian
+ * @Date: 2020-04-05 13:37:28
+ * @LastEditTime: 2020-04-06 15:31:46
+ * @LastEditors: Please set LastEditors
+ * @Description: 引入并实例化express
+ * @FilePath: /vue-node-mongo/node-app/server.js
+ */
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
