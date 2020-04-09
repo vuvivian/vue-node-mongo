@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "newComp": "node ./scripts/generateComponent.js",
+    "new:view": "node ./scripts/generateView"
   },
   "author": "vuvivian",
   "license": "ISC",
