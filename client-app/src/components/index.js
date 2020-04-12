@@ -1,7 +1,7 @@
 /*
  * @Author: vuvivian
  * @Date: 2020-04-09 12:00:57
- * @LastEditTime: 2020-04-11 00:03:59
+ * @LastEditTime: 2020-04-12 19:39:59
  * @LastEditors: Please set LastEditors
  * @Description: 扫描全局对象并自动注册。
  * @FilePath: /vue-node-mongo/client-app/src/components/index.js

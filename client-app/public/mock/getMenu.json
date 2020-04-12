@@ -2,33 +2,37 @@
   "menuList": [
     {
       "name": "首页",
-      "to": "home",
-      "icon": "ios-archive-outline"
+      "id": "home",
+      "icon": "ios-archive-outline",
+      "children": [{
+        "name": "关于",
+        "id": "about",
+        "icon": "ios-create-outline"
+      }]
     },
     {
-      "name": "关于",
-      "to": "about",
-      "icon": "ios-create-outline"
-    },
-    {
+      "id": "menu01",
       "name": "菜单分类1",
       "icon": "md-person",
       "children": [
         {
           "name": "用户",
-          "to": "user"
+          "id": "user",
+          "children": [{
+            "id": "01-01-01",
+            "name": "三级菜单",
+            "children": [{
+              "id": "01-01-01-01",
+              "name": "四级菜单"
+            }]
+          }]
         }
       ]
     },
     {
+      "id": "menu02",
       "name": "菜单分类2",
-      "icon": "ios-copy",
-      "children": [
-        {
-          "name": "测试",
-          "to": "test"
-        }
-      ]
+      "icon": "ios-copy"
     }
   ]
 }

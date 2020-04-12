@@ -1,7 +1,7 @@
 /*
  * @Author: vuvivian
  * @Date: 2020-04-11 17:05:02
- * @LastEditTime: 2020-04-12 13:25:12
+ * @LastEditTime: 2020-04-12 19:49:29
  * @LastEditors: Please set LastEditors
  * @Description: 配置文件
  * @FilePath: /vue-node-mongo/client-app/vue.config.js

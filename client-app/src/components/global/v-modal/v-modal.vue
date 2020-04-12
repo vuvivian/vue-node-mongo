@@ -1,14 +1,14 @@
 <!--
  * @Author: vuvivian
  * @Date: 2020-04-09 22:42:22
- * @LastEditTime: 2020-04-12 12:56:55
+ * @LastEditTime: 2020-04-12 18:44:15
  * @LastEditors: Please set LastEditors
  * @Description: 基于iview的modal组件封装
  * @FilePath: /vue-node-mongo/client-app/src/components/global/v-modal/main.vue
  -->
 <template>
   <Modal
-    class-name="v-modal"
+    class="v-modal"
     v-model="visible"
     :closable="true"
     :mask-closable="true"
