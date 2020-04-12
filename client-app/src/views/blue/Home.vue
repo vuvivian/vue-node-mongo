@@ -23,7 +23,6 @@ export default {
   created () {
     // 查询菜单数据
     this.$axios.get('/api/getMenu.json').then(res => {
-      console.log(res)
       this.menuList = res.data.menuList
     }).catch(err => {
       console.log(err)

@@ -16,6 +16,5 @@ componentsContext.keys().forEach(component => {
   * 兼容 import export 和 require module.export 两种规范
   */
   const ctrl = componentConfig.default || componentConfig
-  console.log(ctrl.name, ctrl)
   Vue.component(ctrl.name, ctrl)
 })
