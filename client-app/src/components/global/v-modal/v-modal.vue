@@ -1,14 +1,13 @@
 <!--
  * @Author: vuvivian
  * @Date: 2020-04-09 22:42:22
- * @LastEditTime: 2020-04-11 17:47:08
+ * @LastEditTime: 2020-04-12 12:56:55
  * @LastEditors: Please set LastEditors
  * @Description: 基于iview的modal组件封装
  * @FilePath: /vue-node-mongo/client-app/src/components/global/v-modal/main.vue
  -->
 <template>
   <Modal
-    :ref="ref"
     class-name="v-modal"
     v-model="visible"
     :closable="true"
@@ -38,10 +37,6 @@
 export default {
   name: 'v-modal',
   props: {
-    ref: {
-      type: String,
-      default: 'v-modal'
-    },
     isShow: Boolean, // 是否打开
     title: {
       type: String,
