@@ -3,36 +3,37 @@
     {
       "name": "首页",
       "id": "home",
+      "icon": "ios-archive-outline"
+    },
+    {
+      "name": "基本信息",
+      "id": "basicInfo",
       "icon": "ios-archive-outline",
       "children": [{
-        "name": "关于",
-        "id": "about",
-        "icon": "ios-create-outline"
+        "name": "公司信息",
+        "id": "companyInfo"
+      },{
+        "name": "部门信息",
+        "id": "departInfo"
+      },{
+        "name": "人员信息",
+        "id": "elementInfo"
       }]
     },
     {
-      "id": "menu01",
-      "name": "菜单分类1",
+      "name": "权限管理",
+      "id": "roleManager",
       "icon": "md-person",
-      "children": [
-        {
-          "name": "用户",
-          "id": "user",
-          "children": [{
-            "id": "01-01-01",
-            "name": "三级菜单",
-            "children": [{
-              "id": "01-01-01-01",
-              "name": "四级菜单"
-            }]
-          }]
-        }
-      ]
-    },
-    {
-      "id": "menu02",
-      "name": "菜单分类2",
-      "icon": "ios-copy"
+      "children": [{
+        "name": "字段权限",
+        "id": "fieldRole"
+      },{
+        "name": "部门权限",
+        "id": "departRole"
+      },{
+        "name": "角色权限",
+        "id": "userRole"
+      }]
     }
   ]
 }

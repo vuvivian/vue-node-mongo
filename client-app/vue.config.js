@@ -1,7 +1,7 @@
 /*
  * @Author: vuvivian
  * @Date: 2020-04-11 17:05:02
- * @LastEditTime: 2020-04-12 19:49:29
+ * @LastEditTime: 2020-04-13 15:29:33
  * @LastEditors: Please set LastEditors
  * @Description: 配置文件
  * @FilePath: /vue-node-mongo/client-app/vue.config.js
@@ -21,6 +21,9 @@ module.exports = {
       .set("@views", resolve("src/views"))
       .set("@assets", resolve("src/assets"))
       .set("@scripts", resolve("src/assets/js"));
+  },
+  configureWebpack: {
+    devtool: 'source-map'
   },
   devServer: {
     disableHostCheck: true,
