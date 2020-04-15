@@ -1,7 +1,7 @@
 <!--
  * @Author: vuvivian
  * @Date: 2020-04-11 18:05:31
- * @LastEditTime: 2020-04-13 15:50:44
+ * @LastEditTime: 2020-04-14 15:17:12
  * @LastEditors: Please set LastEditors
  * @Description: 可模糊搜索的菜单组件 client-app/public/mock/get_menu_data.json
  * @FilePath: /vue-node-mongo/client-app/src/components/global/v-menu/main.vue
@@ -86,7 +86,7 @@ export default {
           }
         } else {
           if (item.name.indexOf(searchValue) > -1) {
-            resultList.push(item)
+            resultList.push(copyObject(item))
           }
         }
       })

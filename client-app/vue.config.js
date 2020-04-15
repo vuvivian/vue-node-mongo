@@ -6,21 +6,21 @@
  * @Description: 配置文件
  * @FilePath: /vue-node-mongo/client-app/vue.config.js
  */
-const path = require("path");
+const path = require('path')
 const resolve = dir => {
-  return path.join(__dirname, dir);
-};
+  return path.join(__dirname, dir)
+}
 
 module.exports = {
   chainWebpack: config => {
     // 别名
     config.resolve.alias
-      .set("@", resolve("src"))
-      .set("@components", resolve("src/components"))
-      .set("@api", resolve("src/api"))
-      .set("@views", resolve("src/views"))
-      .set("@assets", resolve("src/assets"))
-      .set("@scripts", resolve("src/assets/js"));
+      .set('@', resolve('src'))
+      .set('@components', resolve('src/components'))
+      .set('@api', resolve('src/api'))
+      .set('@views', resolve('src/views'))
+      .set('@assets', resolve('src/assets'))
+      .set('@scripts', resolve('src/assets/js'))
   },
   configureWebpack: {
     devtool: 'source-map'

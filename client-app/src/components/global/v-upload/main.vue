@@ -1,13 +1,14 @@
 <!--
  * @Author: vuvivia
  * @Date: 2020-04-09 23:39:01
- * @LastEditTime: 2020-04-13 22:55:12
+ * @LastEditTime: 2020-04-15 16:17:25
  * @LastEditors: Please set LastEditors
- * @Description: 上传组件封装
+ * @Description: 基于iview上传组件封装
  * @FilePath: /vue-node-mongo/client-app/src/components/global/v-upload/main.vue
  -->
 <template>
   <div class="v-upload">
+    <button @click="handle">ss</button>
     <div class="v-upload-list" v-for="item in uploadList" :key="item.url">
       <template v-if="item.status === 'finished'">
         <img :src="item.url" />
@@ -22,7 +23,7 @@
     </div>
     <Upload
       ref="v-upload"
-      :show-upload-list="false"
+      :show-upload-list="true"
       :format="fileType"
       :max-size="maxSize"
       :multiple="isMultiple"
@@ -80,9 +81,15 @@ export default {
     }
   },
   methods: {
+    handle () {
+      console.log('sda')
+    },
     // 上传文件之前
     handleBeforeUpload (file) {
       console.log('before', file)
+      // console.log(this.$refs['v-upload'].fileList)
+      this.uploadList.push(file)
+      return false
     },
     // 文件上传时
     handleOnprogress (event, file, fileList) {
