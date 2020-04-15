@@ -1,24 +1,27 @@
 <!--
  * @Author: vuvivian
  * @Date: 2020-04-15 22:23:45
- * @LastEditTime: 2020-04-15 22:58:48
+ * @LastEditTime: 2020-04-16 00:07:39
  * @LastEditors: Please set LastEditors
  * @Description: 单文件上传
  * @FilePath: /vue-node-mongo/client-app/src/components/global/v-form-upload/main.vue
  -->
 <template>
   <div class="studio-upload">
-    <form ref="upload-form" method="POST" target="v_iframe" action="https://wangjuan-13.studio.mypscloud.com/api/studio/menu/upload_menu_icon" enctype="multipart/form-data" >
+    <form :ref="fileId" method="POST" :target="`iframe-${fileId}`" :action="action" enctype="multipart/form-data" >
       <input
-        ref="input"
+        :ref="`input-${fileId}`"
         type="file"
-        id="upload"
-        name="ufile"
+        :id="`upload-${fileId}`"
+        :name="name"
         class="upload-file"
-        accept="audio/*,video/*,image/*"
+        :accept="accept"
         @change="handleChange"
       />
-      <label v-show="this.fileList.length <= 0" for="upload" class='add-file'>
+      <template v-for="(value, key) in data">
+        <input type="text" :name="key" :value="value" style="display:none" :key="key"/>
+      </template>
+      <label v-show="this.fileList.length <= 0" :for="`upload-${fileId}`" class='add-file'>
         <Icon type="ios-camera" size="40" class="add-file-icon"/>
         <span class="add-file-text">应用图标</span>
       </label>
@@ -27,12 +30,12 @@
        <img :src="imgUrl" class="upload-img" />
        <div class="upload-img-mask">
         <a :href="imgUrl" target="_parent" title="预览" rel="noopener noreferrer">
-          <Icon type="ios-eye-outline" class="upload-img-operation upload-img-preview" />
+          <Icon type="ios-eye-outline" class="upload-img-operation upload-img-preview" @click="preview" />
         </a>
-        <Icon type="ios-trash-outline" class="upload-img-operation upload-img-delete" />
+        <Icon type="ios-trash-outline" class="upload-img-operation upload-img-delete" @click="remove" />
        </div>
     </div>
-    <iframe id="id_iframe" name="v_iframe" style="display:none" />
+    <iframe :id="`iframe-${fileId}`" :name="`iframe-${fileId}`" style="display:none" />
   </div>
 </template>
 
@@ -46,7 +49,30 @@ export default {
     }
   },
   props: {
-    
+    action: {
+      type: String,
+      default: '/menu/upload_menu_icon'
+    }, // 文件上传地址
+    fileId: {
+      type: String,
+      default: 'v-form-upload'
+    }, // 当前文件对应form的ref
+    data: {
+      type: Object,
+      default: () => {}
+    }, // 接口需要的其他参数及对应的值
+    name: {
+      type: String,
+      default: 'ufile'
+    }, // 接口中文件对应的key
+    accept: {
+      type: String,
+      default: '*/*'
+    }, // 上传文件的类型
+    defaultFile: {
+      type: Array,
+      default: () => []
+    } // 默认显示的文件列表，需要包含文件url地址
   },
   methods: {
     handleChange (e) {
@@ -54,7 +80,7 @@ export default {
       this.imgUrl = this.processFile(file)
       this.fileList.push(file)
       // 触发submit提交
-      this.$refs['upload-form'].submit()
+      this.$refs[this.fileId].submit()
     },
     // 获取文件url
     processFile (file) {
@@ -67,6 +93,16 @@ export default {
         url = window.webkitURL.createObjectURL(file)
       }
       return url
+    },
+    // 预览
+    preview () {
+      console.log('预览')
+    },
+    // 删除
+    remove () {
+      this.fileList = []
+      this.imgUrl = ''
+      this.$refs[`input-${this.fileId}`].value = null
     }
   }
 }
