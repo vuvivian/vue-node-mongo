@@ -1,7 +1,7 @@
 <!--
  * @Author: vuvivian
  * @Date: 2020-04-09 22:42:22
- * @LastEditTime: 2020-04-12 18:44:15
+ * @LastEditTime: 2020-04-16 22:13:10
  * @LastEditors: Please set LastEditors
  * @Description: 基于iview的modal组件封装
  * @FilePath: /vue-node-mongo/client-app/src/components/global/v-modal/main.vue
@@ -37,7 +37,7 @@
 export default {
   name: 'v-modal',
   props: {
-    isShow: Boolean, // 是否打开
+    value: Boolean, // 是否打开改为value进行双向绑定
     title: {
       type: String,
       default: 'v-modal'
@@ -55,8 +55,12 @@ export default {
     }
   },
   watch: {
-    isShow (curValue, prevValue) {
+    value (curValue, prevValue) {
       this.visible = curValue
+    },
+    // 双向绑定
+    visible(val){
+      this.$emit('input', val);
     }
   },
   methods: {
@@ -66,10 +70,14 @@ export default {
       this.$emit('on-ok', run => {
         this.closeModal()
       })
+      // 防止loading一直转
+       setTimeout(() => {
+        this.loading = false;
+      }, 400);
     },
     // 取消事件
     handleCancel () {
-      if (this.$listeners('on-cancel')) {
+      if (this.$listeners['on-cancel']) {
         this.$emit('on-cancel')
       }
       this.closeModal()
@@ -85,7 +93,7 @@ export default {
     closeModal () {
       this.loading = false
       this.visible = false
-      if (this.listeners('formRef')) {
+      if (this.formRef) {
         this.$refs[this.formRef].resetFields()
       }
     }

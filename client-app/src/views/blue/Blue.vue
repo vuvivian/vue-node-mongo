@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-10 23:08:36
- * @LastEditTime: 2020-04-12 13:08:34
+ * @LastEditTime: 2020-04-16 10:29:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-node-mongo/client-app/src/views/Dashboard.vue
@@ -15,8 +15,20 @@
       :isShow="isShow"
       @on-cancel="cancle"
       @on-ok="ok"
-      @on-delete="delte">
+      @on-delete="delte"
+      formRef="formInline">
       <div slot="modal-content">
+        <Form ref="formInline" :model="formInline" :rules="ruleInline" inline>
+          <FormItem prop="user">
+              <Input type="text" v-model="formInline.user" placeholder="Username" />
+          </FormItem>
+          <FormItem prop="password">
+              <Input type="password" v-model="formInline.password" placeholder="Password" />>
+          </FormItem>
+          <FormItem>
+              <Button type="primary" @click="handleSubmit('formInline')">Signin</Button>
+          </FormItem>
+      </Form>
         <img src="@assets/logo.png" alt="图片" style="text-align:'center'">
       </div>
     </v-modal>
@@ -30,7 +42,20 @@ export default {
   data () {
     return {
       isShow: false,
-      deleteShow: true
+      deleteShow: true,
+      formInline: {
+        user: '',
+        password: ''
+      },
+      ruleInline: {
+        user: [
+          { required: true, message: 'Please fill in the user name', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: 'Please fill in the password.', trigger: 'blur' },
+          { type: 'string', min: 6, message: 'The password length cannot be less than 6 bits', trigger: 'blur' }
+        ]
+      }
     }
   },
   methods: {
@@ -50,6 +75,15 @@ export default {
     delte () {
       this.$Message.info('Clicked delte2')
       this.deleteShow = false
+    },
+    handleSubmit (name) {
+      this.$refs[name].validate((valid) => {
+        if (valid) {
+          this.$Message.success('Success!')
+        } else {
+          this.$Message.error('Fail!')
+        }
+      })
     }
   }
 }

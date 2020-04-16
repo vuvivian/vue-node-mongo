@@ -1,7 +1,7 @@
 <!--
  * @Author: vuvivian
  * @Date: 2020-04-10 23:06:00
- * @LastEditTime: 2020-04-16 00:08:19
+ * @LastEditTime: 2020-04-16 14:04:35
  * @LastEditors: Please set LastEditors
  * @Description: 首页
  * @FilePath: /vue-node-mongo/client-app/src/views/Home.vue
@@ -9,12 +9,17 @@
 <template>
   <div>
     <v-form-upload
-      action=""
+      action="/menu/upload_menu_icon"
       fileId="test"
       :data="params"
       name="ufile"
       accept="image/*"
       />
+      <br />
+      <br />
+       <Cascader v-model="value3" :data="data" filterable></Cascader>
+      <br />
+     <v-tree></v-tree>
   </div>
 </template>
 
@@ -26,7 +31,55 @@ export default {
       menuList: [],
       params: {
         model: 'aa'
-      }
+      },
+      data: [{
+        value: 'beijing',
+        label: '北京',
+        children: [
+          {
+            value: 'gugong',
+            label: '故宫'
+          },
+          {
+            value: 'tiantan',
+            label: '天坛'
+          },
+          {
+            value: 'wangfujing',
+            label: '王府井'
+          }
+        ]
+      }, {
+        value: 'jiangsu',
+        label: '江苏',
+        children: [
+          {
+            value: 'nanjing',
+            label: '南京',
+            children: [
+              {
+                value: 'fuzimiao',
+                label: '夫子庙'
+              }
+            ]
+          },
+          {
+            value: 'suzhou',
+            label: '苏州',
+            children: [
+              {
+                value: 'zhuozhengyuan',
+                label: '拙政园'
+              },
+              {
+                value: 'shizilin',
+                label: '狮子林'
+              }
+            ]
+          }
+        ]
+      }],
+      value3: []
     }
   },
   created () {

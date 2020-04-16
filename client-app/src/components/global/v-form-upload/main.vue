@@ -1,7 +1,7 @@
 <!--
  * @Author: vuvivian
  * @Date: 2020-04-15 22:23:45
- * @LastEditTime: 2020-04-16 00:07:39
+ * @LastEditTime: 2020-04-16 10:43:16
  * @LastEditors: Please set LastEditors
  * @Description: 单文件上传
  * @FilePath: /vue-node-mongo/client-app/src/components/global/v-form-upload/main.vue
@@ -51,7 +51,7 @@ export default {
   props: {
     action: {
       type: String,
-      default: '/menu/upload_menu_icon'
+      default: ''
     }, // 文件上传地址
     fileId: {
       type: String,
