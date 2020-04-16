@@ -59,8 +59,8 @@ export default {
       this.visible = curValue
     },
     // 双向绑定
-    visible(val){
-      this.$emit('input', val);
+    visible (val) {
+      this.$emit('input', val)
     }
   },
   methods: {
@@ -71,9 +71,9 @@ export default {
         this.closeModal()
       })
       // 防止loading一直转
-       setTimeout(() => {
-        this.loading = false;
-      }, 400);
+      setTimeout(() => {
+        this.loading = false
+      }, 400)
     },
     // 取消事件
     handleCancel () {
