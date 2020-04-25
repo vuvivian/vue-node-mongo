@@ -1,7 +1,7 @@
 <!--
  * @Author: vuvivian
  * @Date: 2020-04-10 23:06:00
- * @LastEditTime: 2020-04-16 14:04:35
+ * @LastEditTime: 2020-04-17 14:17:13
  * @LastEditors: Please set LastEditors
  * @Description: 首页
  * @FilePath: /vue-node-mongo/client-app/src/views/Home.vue
@@ -16,10 +16,9 @@
       accept="image/*"
       />
       <br />
+      <v-tree></v-tree>
       <br />
-       <Cascader v-model="value3" :data="data" filterable></Cascader>
-      <br />
-     <v-tree></v-tree>
+      <v-dragger-tree v-modal="buttonList" />
   </div>
 </template>
 
@@ -32,54 +31,38 @@ export default {
       params: {
         model: 'aa'
       },
-      data: [{
-        value: 'beijing',
-        label: '北京',
-        children: [
-          {
-            value: 'gugong',
-            label: '故宫'
-          },
-          {
-            value: 'tiantan',
-            label: '天坛'
-          },
-          {
-            value: 'wangfujing',
-            label: '王府井'
-          }
-        ]
+      buttonList: [{
+        func_type: 'action', // action表示跳转视图按钮，object表示执行函数
+        func_name: 'xxx', // 函数名
+        button_string: '按钮一', // 按钮名称
+        is_group: 1, // 1表示分组，0表示不分组
+        group_name: '分组一', // 分组名
+        is_batch: 1 // 1表示批量按钮，0表示不是批量
       }, {
-        value: 'jiangsu',
-        label: '江苏',
-        children: [
-          {
-            value: 'nanjing',
-            label: '南京',
-            children: [
-              {
-                value: 'fuzimiao',
-                label: '夫子庙'
-              }
-            ]
-          },
-          {
-            value: 'suzhou',
-            label: '苏州',
-            children: [
-              {
-                value: 'zhuozhengyuan',
-                label: '拙政园'
-              },
-              {
-                value: 'shizilin',
-                label: '狮子林'
-              }
-            ]
-          }
-        ]
-      }],
-      value3: []
+        func_type: '123',
+        func_name: 'xxx',
+        button_string: '按钮一',
+        is_group: 1,
+        group_name: '分组一',
+        is_batch: 1
+      }, {
+        group_name: '',
+        children: [{
+          func_type: '123',
+          func_name: 'xxx',
+          button_string: '按钮一',
+          is_group: 1,
+          group_name: '分组一',
+          is_batch: 1
+        }, {
+          func_type: '123',
+          func_name: 'xxx',
+          button_string: '按钮一',
+          is_group: 1,
+          group_name: '分组一',
+          is_batch: 1
+        }]
+      }]
     }
   },
   created () {
