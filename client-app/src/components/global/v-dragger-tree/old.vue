@@ -30,7 +30,7 @@
     <v-modal
      title="增加按钮"
      hasDelete="true"
-     v-modal="visible"
+     v-model="visible"
      @on-cancel="cancle"
      @on-ok="ok"
      @on-delete="delte">

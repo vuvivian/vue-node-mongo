@@ -1,24 +1,34 @@
 <!--
  * @Author: vuvivian
  * @Date: 2020-04-10 23:06:00
- * @LastEditTime: 2020-04-17 14:17:13
+ * @LastEditTime: 2020-04-28 13:57:16
  * @LastEditors: Please set LastEditors
  * @Description: 首页
  * @FilePath: /vue-node-mongo/client-app/src/views/Home.vue
  -->
 <template>
-  <div>
-    <v-form-upload
-      action="/menu/upload_menu_icon"
-      fileId="test"
-      :data="params"
-      name="ufile"
-      accept="image/*"
-      />
-      <br />
-      <v-tree></v-tree>
-      <br />
-      <v-dragger-tree v-modal="buttonList" />
+  <div class="home">
+    <div>
+      <v-menu
+        :menuList = "menuList"
+      >
+      </v-menu>
+    </div>
+    <div>
+       <v-form-upload
+        action="/menu/upload_menu_icon"
+        fileId="test"
+        :data="params"
+        name="ufile"
+        accept="image/*"
+        />
+    </div>
+    <div>
+       <v-tree></v-tree>
+    </div>
+    <div>
+       <v-dragger-tree v-model="buttonList" />
+    </div>
   </div>
 </template>
 
@@ -106,4 +116,9 @@ export default {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.home {
+  display: flex;
+  justify-content: space-between;
+}
+</style>

@@ -11,10 +11,31 @@
       "icon": "ios-archive-outline",
       "children": [{
         "name": "公司信息",
-        "id": "companyInfo"
+        "id": "companyInfo",
+        "children":[{
+          "name":"公司名称",
+          "id": "companyTitle",
+          "children":[{
+            "name":"公司名称1",
+            "id": "companyTitle1"
+          },{
+            "name":"公司名称2",
+            "id": "companyTitle2"
+          }]
+        },{
+          "name":"公司地址",
+          "id": "companyAddress"
+        }]
       },{
         "name": "部门信息",
-        "id": "departInfo"
+        "id": "departInfo",
+        "children":[{
+          "name":"部门名称",
+          "id": "departTitle"
+        },{
+          "name":"部门地址",
+          "id": "departAddress"
+        }]
       },{
         "name": "人员信息",
         "id": "elementInfo"
