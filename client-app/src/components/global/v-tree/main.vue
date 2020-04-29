@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:08:51
- * @LastEditTime: 2020-04-16 17:52:43
+ * @LastEditTime: 2020-04-29 18:11:11
  * @LastEditors: Please set LastEditors
  * @Description: 模糊搜索的checkbox树
  * @FilePath: /vue-node-mongo/client-app/src/components/global/v-tree/main.vue
@@ -68,6 +68,7 @@ export default {
         }
         // 如果节点含有孩子节点，继续遍历
         if (item.children && item.children.length > 0) {
+          that.$set(item, 'expand', true)
           this._eventGroup(item.children)
         }
         // todo 如果子节点含有含有搜索值 需要逐层展开其父级

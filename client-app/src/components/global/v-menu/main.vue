@@ -1,7 +1,7 @@
 <!--
  * @Author: vuvivian
  * @Date: 2020-04-11 18:05:31
- * @LastEditTime: 2020-04-28 18:00:54
+ * @LastEditTime: 2020-04-29 18:11:36
  * @LastEditors: Please set LastEditors
  * @Description: 可模糊搜索的菜单组件 client-app/public/mock/get_menu_data.json
  * @FilePath: /vue-node-mongo/client-app/src/components/global/v-menu/main.vue
@@ -130,8 +130,12 @@ export default {
       } else if (this.index >= this.activeNameList.length) {
         this.index = 0
       }
-      this.activeName = this.activeNameList[this.index].id
-      this.index = this.index + 1
+      if (this.activeNameList.length > 0) {
+        this.activeName = this.activeNameList[this.index].id
+        document.querySelector('.v-menu').scrollTo(0, 0)
+        document.querySelector('.v-menu').scrollTo(0, document.getElementById(this.activeName).getBoundingClientRect().y - 121)
+        this.index = this.index + 1
+      }
     },
     // 清空模糊搜索
     clearSearch () {
